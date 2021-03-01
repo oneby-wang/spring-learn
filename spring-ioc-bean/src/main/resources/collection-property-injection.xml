@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/util
+                http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- 演示数组的赋值 -->
+    <!--<bean id="collectionExample" class="com.com.oneby.entity.CollectionExample">
+        <property name="array">
+            <array>
+                <value>Oneby</value>
+                <value>Heygo</value>
+            </array>
+        </property>
+    </bean>-->
+
+    <!-- 演示 List 的赋值 -->
+    <!--<bean id="collectionExample" class="com.com.oneby.entity.CollectionExample">
+        <property name="list">
+            <list>
+                <value>Oneby</value>
+                <value>Heygo</value>
+            </list>
+        </property>
+    </bean>-->
+
+    <!-- 演示 Set 的赋值-->
+    <!--<bean id="collectionExample" class="com.com.oneby.entity.CollectionExample">
+        <property name="set">
+            <set>
+                <value>Oneby</value>
+                <value>Heygo</value>
+            </set>
+        </property>
+    </bean>-->
+
+    <!-- 演示 Map 的赋值-->
+    <!--<bean id="collectionExample" class="com.com.oneby.entity.CollectionExample">
+        <property name="map">
+            <map>
+                <entry key="name" value="Oneby"></entry>
+                <entry key="hobby" value="code"></entry>
+            </map>
+        </property>
+    </bean>-->
+
+    <!-- 演示 properties 的赋值-->
+    <!--<bean id="collectionExample" class="com.com.oneby.entity.CollectionExample">
+        <property name="properties">
+            <props>
+                <prop key="name">Oneby</prop>
+                <prop key="hobby">code</prop>
+            </props>
+        </property>
+    </bean>-->
+
+    <!-- 集合类型的 bean-->
+    <util:list id="list">
+        <value>Oneby</value>
+        <value>Heygo</value>
+    </util:list>
+    <bean id="collectionExample" class="com.com.oneby.entity.CollectionExample">
+        <property name="list" ref="list"/>
+    </bean>
+
+
+</beans>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 引用其他 bean -->
+    <!--<bean id="student" class="com.com.oneby.entity.Student">
+        <property name="stuId" value="233"/>
+        <property name="stuName" value="Oneby"/>
+        <property name="computer" value="#{computer}"/>
+    </bean>
+
+    <bean id="computer" class="com.com.oneby.entity.Computer">
+        <property name="computerId" value="666"/>
+        <property name="computerName" value="HP"/>
+    </bean>-->
+
+    <!-- 引用其他 bean 的属性 -->
+    <!--<bean id="student" class="com.com.oneby.entity.Student">
+        <property name="stuId" value="233"/>
+        <property name="stuName" value="Oneby"/>
+        <property name="computer" >
+            <bean class="com.com.oneby.entity.Computer">
+                <property name="computerId" value="#{computer.computerId}"/>
+                <property name="computerName" value="#{computer.computerName}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="computer" class="com.com.oneby.entity.Computer">
+        <property name="computerId" value="666"/>
+        <property name="computerName" value="HP"/>
+    </bean>-->
+
+    <!-- 调用非静态方法 -->
+    <!--<bean id="student" class="com.com.oneby.entity.Student">
+        <property name="stuId" value="233"/>
+        <property name="stuName" value="Oneby"/>
+        <property name="computer">
+            <bean class="com.com.oneby.entity.Computer">
+                <property name="computerId" value="#{computer.getComputerId()}"/>
+                <property name="computerName" value="#{computer.getComputerName()}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="computer" class="com.com.oneby.entity.Computer">
+        <property name="computerId" value="666"/>
+        <property name="computerName" value="HP"/>
+    </bean>-->
+
+    <!-- 调用静态方法 -->
+    <bean id="student" class="com.com.oneby.entity.Student">
+        <property name="stuId" value="#{T(com.com.oneby.util.MathUtil).getRandomInt(0,255)}"/>
+        <property name="stuName" value="Oneby"/>
+    </bean>
+
+</beans>

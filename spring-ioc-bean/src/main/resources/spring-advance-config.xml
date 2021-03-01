@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 演示 bean 的作用域 -->
+    <!--<bean id="student" class="com.com.oneby.entity.Student" scope="prototype">
+        <property name="stuId" value="233" />
+        <property name="stuName" value="Oneby" />
+    </bean>-->
+
+    <!-- 演示 bean 的生命周期 -->
+    <!--<bean id="order" class="com.com.oneby.entity.Order"
+          init-method="initMethod" destroy-method="destroyMethod">
+        <property name="name" value="iPad" />
+    </bean>
+
+    &lt;!&ndash; 加上 BeanPostProcessor 后的生命周期 &ndash;&gt;
+    <bean id="myBeanPost" class="com.com.oneby.config.MyBeanPost"/>-->
+
+    <!-- 直接配置数据库连接池 -->
+    <!--<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+        <property name="url" value="jdbc:mysql:///test"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    </bean>-->
+
+    <!-- 引用外部属性文件来配置数据库连接池 -->
+    <!-- &lt;!&ndash; 指定 properties 属性文件的位置，classpath:xxx 表示属性文件位于类路径下 &ndash;&gt;
+     <context:property-placeholder location="classpath:jdbc.properties"/>
+     &lt;!&ndash; 从properties属性文件中引入属性值 &ndash;&gt;
+     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+         <property name="username" value="${prop.userName}"/>
+         <property name="password" value="${prop.password}"/>
+         <property name="url" value="${prop.url}"/>
+         <property name="driverClassName" value="${prop.driverClass}"/>
+     </bean>-->
+
+    <!-- 自动装配 -->
+    <bean id="student" class="com.com.oneby.entity.Student" autowire="byType">
+        <property name="stuId" value="233"/>
+        <property name="stuName" value="Oneby"/>
+    </bean>
+
+    <bean id="computer" class="com.com.oneby.entity.Computer">
+        <property name="computerId" value="666"/>
+        <property name="computerName" value="HP"/>
+    </bean>
+
+    <!-- 不使用继承配置 bean -->
+    <!--<bean id="corporateSlave1" class="com.com.oneby.entity.CorporateSlave">
+        <property name="id" value="1"/>
+        <property name="name" value="Oneby"/>
+        &lt;!&ndash; 以下都是重复的属性 &ndash;&gt;
+        <property name="company" value="OneTech"/>
+        <property name="hobby" value="Code"/>
+        <property name="profession" value="Programer"/>
+    </bean>
+
+    <bean id="corporateSlave2" class="com.com.oneby.entity.CorporateSlave">
+        <property name="id" value="2"/>
+        <property name="name" value="Heygo"/>
+        &lt;!&ndash; 以下都是重复的属性 &ndash;&gt;
+        <property name="company" value="OneTech"/>
+        <property name="hobby" value="Code"/>
+        <property name="profession" value="Programer"/>
+    </bean>-->
+
+    <!-- 演示配置信息的继承 -->
+    <!--<bean id="corporateSlave1" class="com.com.oneby.entity.CorporateSlave">
+        <property name="id" value="1"/>
+        <property name="name" value="Oneby"/>
+        &lt;!&ndash; 以下都是重复的属性 &ndash;&gt;
+        <property name="company" value="OneTech"/>
+        <property name="hobby" value="Code"/>
+        <property name="profession" value="Programer"/>
+    </bean>
+
+    <bean id="corporateSlave2" parent="corporateSlave1">
+        &lt;!&ndash; 重写不同值的属性即可 &ndash;&gt;
+        <property name="id" value="2"/>
+        <property name="name" value="Heygo"/>
+    </bean>-->
+
+    <!-- 演示 bean 之间的依赖 -->
+    <!-- <bean id="student" class="com.com.oneby.entity.Student" depends-on="computer">
+         <property name="stuId" value="233"/>
+         <property name="stuName" value="Oneby"/>
+     </bean>
+
+     <bean id="computer" class="com.com.oneby.entity.Computer"/>-->
+
+</beans>

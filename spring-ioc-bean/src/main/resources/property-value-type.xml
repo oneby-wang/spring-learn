@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 演示字面量的使用 -->
+    <!--<bean id="student" class="com.com.oneby.entity.Student">
+        <property name="stuId" value="233"/>
+        <property name="stuName" value="Oneby"/>
+    </bean>-->
+
+    <!-- 演示 null 值的使用-->
+    <!--<bean id="student" class="com.com.oneby.entity.Student">
+        <property name="stuId" value="233"/>
+        &lt;!&ndash; 将 stuName 字段的值设置为 null &ndash;&gt;
+        <property name="stuName">
+            <null/>
+        </property>
+        &lt;!&ndash; 将 computer 字段的值设置为 null &ndash;&gt;
+        <property name="computer">
+            <null/>
+        </property>
+    </bean>-->
+
+    <!-- 引用外部声明的 bean -->
+    <!--<bean id="student" class="com.com.oneby.entity.Student">
+        <property name="stuId" value="233"/>
+        <property name="stuName" value="Oneby"/>
+        &lt;!&ndash; 通过 ref 属性引用外部的 bean &ndash;&gt;
+        <property name="computer" ref="computer"/>
+    </bean>
+    &lt;!&ndash; 外部 bean &ndash;&gt;
+    <bean id="computer" class="com.com.oneby.entity.Computer">
+        <property name="computerId" value="255"/>
+        <property name="computerName" value="HP"/>
+    </bean>-->
+
+    <!-- 引用内部声明的 bean -->
+    <bean id="student" class="com.com.oneby.entity.Student">
+        <property name="stuId" value="233"/>
+        <property name="stuName" value="Oneby"/>
+        <property name="computer">
+            <!-- 通过 <bean> 标签定义内部 bean -->
+            <bean class="com.com.oneby.entity.Computer">
+                <property name="computerId" value="255"/>
+                <property name="computerName" value="HP"/>
+            </bean>
+        </property>
+    </bean>
+
+</beans>
